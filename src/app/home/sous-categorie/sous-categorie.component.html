@@ -1,0 +1,144 @@
+<div class="mainbanner">
+  <div id="main-banner" class="owl-carousel home-slider">
+    <div class="item"> <a><img src="assets/image/banners/prlx.jpg" class="img-responsive" /></a> </div>
+    <div class="item"> <a><img src="assets/image/banners/prlx.jpg" class="img-responsive" /></a> </div>
+  </div>
+  <br>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div id="column-left" class="col-sm-3 hidden-xs column-left">
+        <div class="Categories left-sidebar-widget">
+          <div class="columnblock-title">{{souscategorie.nom}}</div>
+          <div class="category_block">
+            <ul class="box-category treeview">
+              <li *ngFor="let prod of souscategorie.produit"><a class="activSub" (click)="gosubProduit(prod._id)">{{prod.nom}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="Categories left-sidebar-widget">
+          <div class="columnblock-title"> tous les Secteurs</div>
+          <div class="category_block">
+            <ul class="box-category treeview">
+
+              <li><a class="activSub">Santé</a>
+                <ul >
+                  <ul *ngFor="let s of categoriesante">
+                    <li *ngFor="let c of s.categorie"><a class="activSub" (click)="gosubCategorie(c._id)">{{c.nom}}</a>
+                    </li>
+                  </ul>
+                </ul>
+              </li>
+              <li><a class="activSub">Beauté</a>
+                <ul >
+                  <ul *ngFor="let b of categoriebeaute">
+                    <li *ngFor="let c of b.categorie"><a class="activSub" (click)="gosubCategorie(c._id)">{{c.nom}}</a>
+                    </li>
+                  </ul>
+                </ul>
+              </li>
+              <li><a class="activSub">Maman Bébé</a>
+                <ul >
+                  <ul *ngFor="let mb of categoriemamanbebe">
+                    <li *ngFor="let c of mb.categorie"><a class="activSub" (click)="gosubCategorie(c._id)">{{c.nom}}</a>
+                    </li>
+                  </ul>
+                </ul>
+              </li>
+              <li><a class="activSub">Compliment Alimentaire</a>
+                <ul >
+                  <ul *ngFor="let cm of categoriecomplimentalimentaire">
+                    <li *ngFor="let c of cm.categorie"><a class="activSub" (click)="gosubCategorie(c._id)">{{c.nom}}</a>
+                    </li>
+                  </ul>
+                </ul>
+              </li>
+
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="banner left-sidebar-widget"> <a><img src="assets/image/banners/tof3.png" alt="Left Banner" class="img-responsive" /></a> </div>
+      </div>
+      <div class=" content col-sm-9">
+        <div class="category-page-wrapper">
+          <div class="col-md-2 text-right sort-wrapper">
+            <label class="control-label" for="input-sort">Trier Par :</label>
+            <div class="sort-inner">
+              <select id="input-sort" class="form-control">
+                <option value="ASC" selected="selected">Défaut</option>
+                <option value="ASC">Nom (A - Z)</option>
+                <option value="DESC">Nom (Z - A)</option>
+                <option value="ASC">Prix (Low &gt; High)</option>
+                <option value="DESC">Prix (High &gt; Low)</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-1 text-right page-wrapper">
+            <label class="control-label" for="input-limit">Affiche :</label>
+            <div class="limit">
+              <select id="input-limit" class="form-control">
+                <option value="8" selected="selected">08</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="75">75</option>
+                <option value="100">100</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 list-grid-wrapper"> <a id="compare-total"></a>
+            <div class="btn-group btn-list-grid">
+              <button type="button" id="list-view" class="btn btn-default list" data-toggle="tooltip" title="List"></button>
+              <button type="button" id="grid-view" class="btn btn-default grid" data-toggle="tooltip" title="Grid"></button>
+            </div>
+          </div>
+        </div>
+        <div class="grid-list-wrapper">
+          <div class="product-layout product-list col-xs-12"  *ngFor="let p of souscategorie.produit">
+            <div class="product-thumb">
+              <div class="image product-imageblock">
+                <a>
+                  <img src="http://localhost:8080/galerie/images/{{p.picture}}"  title="{{p.nom}}" class="img-responsive" />
+                  <img src="http://localhost:8080/galerie/images/{{p.picture}}"  title="{{p.nom}}" class="img-responsive" />
+                </a>
+                <ul class="button-group grid-btn">
+                  <li>
+                    <button type="button" class="addtocart-btn" title="Voir Produit" (click)="gosubProduit(p._id)">Voir Produit</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="caption product-detail">
+                <h4 class="product-name"><a title="Casual Shirt With Ruffle Hem">{{p.nom}}</a></h4>
+                <p class="price product-price">{{p.prix}}
+                <p class="product-desc">{{p.indication }}</p>
+                <ul class="button-group list-btn">
+                  <li>
+                    <button type="button" class="addtocart-btn" title="Voir Produit" (click)="gosubProduit(p._id)">Voir Produit</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="category-page-wrapper">
+          <div class="result-inner">Affichage 1 a 8 de 10 (2 Pages)</div>
+          <div class="pagination-inner">
+            <ul class="pagination">
+              <li class="active"><span>1</span></li>
+              <li><a>2</a></li>
+              <li><a>&gt;</a></li>
+              <li><a>&gt;|</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

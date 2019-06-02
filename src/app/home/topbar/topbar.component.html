@@ -1,0 +1,69 @@
+  <div class="header-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="top-left pull-left">
+            <div class="wel-come-msg">Bienvenue sur notre boutique en ligne! </div>
+          </div>
+          <div class="top-right pull-right">
+            <div id="top-links" class="nav pull-right">
+              <ul class="list-inline">
+                <li class="dropdown"><a title="My Account" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span>Mon compte</span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    <li *ngIf="state!='1'"><a data-title="register" (click)="goregister()">Register</a></li>
+                    <li *ngIf="state!='1'"><a data-title="Identifier" (click)="gologin()">S'identifier</a></li>
+                    <li *ngIf="state==='1'"><a data-title="Déconnexion" (click)="logout()">Déconnexion</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="header-inner">
+      <div class="col-sm-3 col-xs-3 header-left">
+        <div id="logo"> <a><img src="assets/image/logo-dreamspharma.jpg" title="Dreams-Pharma" alt="Dreams-Pharma" class="img-responsive" /></a> </div>
+      </div>
+      <div class="col-sm-9 col-xs-9 header-right">
+        <nav id="menu" class="navbar">
+          <div class="nav-inner">
+            <div class="navbar-collapse pull-left">
+              <ul class="main-navigation">
+                <li><a   class="active parent"   >Santé</a>
+                  <ul *ngFor="let s of categoriesante">
+                    <li *ngFor="let c of s.categorie"><a  (click)="gosubCategorie(c._id)">{{c.nom}}</a></li>
+                   </ul>
+                </li>
+
+                <li><a   class="active parent"   >Beauté</a>
+                  <ul *ngFor="let b of categoriebeaute">
+                    <li *ngFor="let c of b.categorie" ><a   (click)="gosubCategorie(c._id)">{{c.nom}}</a></li>
+                  </ul>
+                </li>
+
+                <li><a   class="active parent"   >Maman Bébé</a>
+                  <ul *ngFor="let mb of categoriemamanbebe">
+                    <li *ngFor="let c of mb.categorie" ><a  (click)="gosubCategorie(c._id)">{{c.nom}}</a></li>
+                  </ul>
+                </li>
+
+                <li><a   class="active parent"   >Compliment Alimentaire</a>
+                  <ul *ngFor="let ca of categoriecomplimentalimentaire">
+                    <li *ngFor="let c of ca.categorie" ><a   (click)="gosubCategorie(c._id)">{{c.nom}}</a></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div id="cart" class="btn-group btn-block">
+          <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button" >
+            <span id="cart-total" (click)="gopanier()"><span>Panier </span></span></button>
+        </div>
+      </div>
+    </div>
+  </div>

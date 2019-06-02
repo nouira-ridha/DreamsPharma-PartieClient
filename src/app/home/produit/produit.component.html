@@ -1,0 +1,88 @@
+<div class="mainbanner">
+  <div id="main-banner" class="owl-carousel home-slider">
+    <div class="item"> <a><img src="assets/image/banners/p1.jpg" class="img-responsive" /></a> </div>
+    <div class="item"> <a><img src="assets/image/banners/p2.jpg" class="img-responsive" /></a> </div>
+    <div class="item"> <a><img src="assets/image/banners/p3.jpg" class="img-responsive" /></a> </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+<div class="container">
+    <div class="row">
+    <div class="content col-sm-12">
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="thumbnails">
+            <div><a class="thumbnail fancybox" href="assets/image/product/product8.jpg" title="{{produit.nom}}"><img src="http://localhost:8080/galerie/images/{{produit.picture}}" title="{{produit.nom}}" /></a></div>
+            <div id="product-thumbnail" class="owl-carousel">
+              <div *ngFor="let g of photos" class="item">
+                <div class="image-additional"><a class="thumbnail fancybox" href="http://localhost:8080/galerie/images/{{g.nom}}" title="iPod Classic"> <img src="http://localhost:8080/galerie/images/{{g.nom}}" /></a></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-7 prodetail">
+          <h1 class="productpage-title">{{produit.nom}}</h1>
+          <ul class="list-unstyled productinfo-details-top">
+            <li>
+              <h2 class="productpage-price">{{produit.prix}} euro</h2>
+            </li>
+          </ul>
+          <hr>
+          <ul class="list-unstyled product_info">
+            <li>
+              <label>Disponibilité :</label>
+              <span>  {{produit.stock}}</span></li>
+          </ul>
+          <hr>
+          <p class="product-desc">  {{produit.presentation}}</p>
+          <div id="product">
+            <div class="form-group">
+              <div class="qty">
+                <label>Qty</label>
+                <input id="qty" placeholder="1" type="number">
+                <ul class="button-group list-btn">
+                  <li>
+                    <button type="button" class="addtocart-btn" data-toggle="tooltip" data-placement="top" title="Ajouter Au Panier" (click)="gosubPanier(produit._id)"><i class="fa fa-shopping-bag"></i></button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="productinfo-tab">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab-indication" data-toggle="tab">Presentation</a></li>
+          <li><a href="#tab-review" data-toggle="tab">Description</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab-indication">
+            <div class="cpt_product_description ">
+              <div>
+                <p>{{produit.presentation}}</p>
+
+              </div>
+            </div>
+            <!-- cpt_container_end --></div>
+          <div class="tab-pane" id="tab-review">
+              <div id="review"></div>
+              <div class="form-group required">
+                <div class="col-sm-12">
+                  <h3>Indication :</h3>
+                  <p> {{produit.indication}}</p>
+                  <h3>Conseil Utilisation :</h3>
+                  <p> {{produit.conseilutilisation}}</p>
+                  <h3>Contre Indication :</h3>
+                  <p> {{produit.contreindication}}</p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

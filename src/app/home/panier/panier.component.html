@@ -1,0 +1,94 @@
+<div class="mainbanner">
+  <div id="main-banner" class="owl-carousel home-slider">
+    <div class="item"> <a><img src="assets/image/banners/panier1.jpg" alt="Main-Banner1" class="img-responsive" /></a> </div>
+    <div class="item"> <a><img src="assets/image/banners/panier2.jpg" alt="Main-Banner1" class="img-responsive" /></a> </div>
+    <div class="item"> <a><img src="assets/image/banners/panier3.jpg" alt="Main-Banner1" class="img-responsive" /></a> </div>
+    <div class="item"> <a><img src="assets/image/banners/panier4.jpg" alt="Main-Banner1" class="img-responsive" /></a> </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div id="column-left" class="col-sm-3 hidden-xs column-left">
+      <div class="Categories left-sidebar-widget">
+        <div class="columnblock-title"> tous les Secteurs</div>
+        <div class="category_block">
+          <ul class="box-category treeview">
+
+            <li><a class="activSub">Santé</a>
+              <ul >
+                <ul *ngFor="let s of categoriesante">
+                  <li *ngFor="let c of s.categorie"><a class="activSub" (click)="gosubCategorie(c._id)">{{c.nom}}</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li><a class="activSub">Beauté</a>
+              <ul >
+                <ul *ngFor="let b of categoriebeaute">
+                  <li *ngFor="let c of b.categorie"><a class="activSub" (click)="gosubCategorie(c._id)">{{c.nom}}</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li><a class="activSub">Maman Bébé</a>
+              <ul >
+                <ul *ngFor="let mb of categoriemamanbebe">
+                  <li *ngFor="let c of mb.categorie"><a class="activSub" (click)="gosubCategorie(c._id)">{{c.nom}}</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li><a class="activSub">Compliment Alimentaire</a>
+              <ul >
+                <ul *ngFor="let cm of categoriecomplimentalimentaire">
+                  <li *ngFor="let c of cm.categorie"><a class="activSub" (click)="gosubCategorie(c._id)">{{c.nom}}</a>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="banner left-sidebar-widget"> <a><img src="assets/image/banners/tof3.png" alt="Left Banner" class="img-responsive" /></a> </div>
+    </div>
+    <div class="col-sm-9" id="content">
+      <div enctype="multipart/form-data" method="post">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <td class="text-center">Image</td>
+              <td class="text-left">Nom De Produit</td>
+              <td class="text-left">Quantité</td>
+              <td class="text-right">Prix</td>
+              <td class="text-right">Total</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let produit of produits">
+              <td class="text-center"><a><img class="img-thumbnail" title="{{produit.nom}}"  src="http://localhost:8080/galerie/images/{{produit.picture}}" width="100" height="100"></a></td>
+              <td class="text-left"><a>{{produit.nom}}</a></td>
+              <td class="text-left"><div style="max-width: 200px;" class="input-group btn-block">
+                <input type="text" class="form-control quantity" size="1" value="1" name="quantity">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" title="" data-toggle="tooltip" type="submit" data-original-title="Update"><i class="fa fa-refresh"></i></button>
+                    <button  class="btn btn-danger" title="" data-toggle="tooltip" type="button" data-original-title="Remove"><i class="fa fa-times-circle"></i></button>
+                    </span></div></td>
+              <td class="text-right">{{produit.prix}}</td>
+              <td class="text-right">{{produit.prix}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="buttons">
+        <div class="pull-left"><a class="btn btn-default" (click)="gohome()">Continuer Vos Achats</a></div>
+        <div class="pull-right"><a class="btn btn-primary" (click)="paiement()">Paiement</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+

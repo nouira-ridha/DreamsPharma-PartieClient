@@ -1,0 +1,95 @@
+<div class="mainbanner">
+  <div id="main-banner" class="owl-carousel home-slider">
+    <div class="item"> <a><img src="assets/image/banners/register1.jpg" alt="Main-Banner1" class="img-responsive" /></a> </div>
+    <div class="item"> <a><img src="assets/image/banners/register2.jpg" alt="Main-Banner1" class="img-responsive" /></a> </div>
+    <div class="item"> <a><img src="assets/image/banners/register3.jpg" alt="Main-Banner1" class="img-responsive" /></a> </div>
+    <div class="item"> <a><img src="assets/image/banners/register4.jpg" alt="Main-Banner1" class="img-responsive" /></a> </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 hidden-xs column-left" id="column-left">
+    </div>
+    <div class="col-sm-9" id="content" >
+      <p>Si vous avez déjà un compte chez nous, <a (click)="gologin()">connectez-vous </a>.</p>
+      <form class="form-horizontal"  method="post" [formGroup]="registerForm" (ngSubmit)="onSubmit(this.tab)">
+        <fieldset id="account">
+          <legend>Vos informations personnelles</legend>
+          <div class="form-group required">
+
+            <label for="input-firstname" class="col-sm-2 control-label">Nom</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" formControlName="nom" id="input-firstname" placeholder="First Name" value="" name="firstname" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }">
+              <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                <div *ngIf="f.nom.errors.required" class=" btn-danger btn-xs">champ obligatoire</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label for="input-lastname" class="col-sm-2 control-label">Prénom</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" formControlName="prenom" id="input-lastname" placeholder="Last Name" value="" name="lastname" [ngClass]="{ 'is-invalid': submitted && f.prenom.errors }">
+              <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+                <div *ngIf="f.prenom.errors.required" class=" btn-danger btn-xs">champ obligatoire</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label for="input-email" class="col-sm-2 control-label">E-Mail</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" formControlName="email" id="input-email" placeholder="E-Mail" value="" name="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required" class=" btn-danger btn-xs">champ obligatoire</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label for="input-telephone" class="col-sm-2 control-label">Telephone</label>
+            <div class="col-sm-10">
+              <input type="tel" class="form-control" formControlName="phone" id="input-telephone" placeholder="Telephone" value="" name="telephone" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+            </div>
+          </div>
+        </fieldset>
+        <fieldset id="address">
+          <legend>Addresse</legend>
+          <div class="form-group required">
+            <label for="input-address-1" class="col-sm-2 control-label">Address</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" formControlName="adresse" id="input-address-1" placeholder="Address 1" value="" name="address_1" [ngClass]="{ 'is-invalid': submitted && f.adresse.errors }">
+          <div *ngIf="submitted && f.adresse.errors" class="invalid-feedback">
+            <div *ngIf="f.adresse.errors.required" class=" btn-danger btn-xs">champ obligatoire</div>
+          </div>
+    </div>
+  </div>
+        </fieldset>
+        <fieldset>
+          <legend>Mot De Passe</legend>
+          <div class="form-group required">
+            <label for="input-password" class="col-sm-2 control-label">Mot De Passe</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" formControlName="password" id="input-password" placeholder="Password" value="" name="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required" class=" btn-danger btn-xs">champ obligatoire</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label for="input-confirm" class="col-sm-2 control-label">Confirmer Mot De Passe</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="input-confirm" placeholder="Password Confirm" value="" name="confirm">
+            </div>
+          </div>
+        </fieldset>
+        <div class="buttons">
+           &nbsp;
+            <input type="submit" class="btn btn-primary" value="Enregistrer">
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
