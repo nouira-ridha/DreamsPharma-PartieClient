@@ -1,3 +1,16 @@
+
+c'est la partie client d'un projet de vente en ligne des produits paramédicales avec la partie back end. Dans cette partie on trouve :
+On trouve dans la partie back end tous les models et les routers  de la partie client et la partie admin de projet développer avec le Framework NodeJS, Express …
+connexion
+enregistrement
+consulté un produit
+consulté un catégorie
+consulté un sous catégorie
+voir la liste des produit filtrer par catégorie
+Voir les détail d'un produit
+ajout au panier un produit
+...
+
 # Template
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
